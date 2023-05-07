@@ -13,3 +13,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1f2937;
+  }
+}
