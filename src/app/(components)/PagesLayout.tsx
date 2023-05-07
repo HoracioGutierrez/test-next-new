@@ -14,7 +14,7 @@ export default function PagesLayout({ children, sidebar, content }: Props) {
         <div className="sidebar p-4 text-gray-200">
           {sidebar}
         </div>
-        <div className="content p-4 pt-20 bg-gray-200">
+        <div className="content p-4 pt-20 bg-gray-200 h-full">
           {content}
         </div>
       </main>

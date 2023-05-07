@@ -14,4 +14,8 @@ model Star {
   updatedAt       DateTime  @updatedAt
   name            String    @db.VarChar(255)
   constellation   String    @db.VarChar(255)
+  distance        Int?       @db.Int
+  discoveredBy    String?    @db.VarChar(255)
+  discoveryYear   Int?       @db.Int
+  description     String?    @db.Text
 }
