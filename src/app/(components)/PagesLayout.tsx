@@ -1,12 +1,12 @@
 import Header from "./Header"
 
 type Props = {
-  children?: React.ReactNode , 
-  sidebar: React.ReactNode ,
+  children?: React.ReactNode,
+  sidebar: React.ReactNode,
   content: React.ReactNode
 }
 
-export default function PagesLayout({ children , sidebar , content }: Props) {
+export default function PagesLayout({ children, sidebar, content }: Props) {
   return (
     <>
       <Header isPage />
