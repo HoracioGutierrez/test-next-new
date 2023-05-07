@@ -20,9 +20,9 @@ export default function Home() {
         </ul>
         <p className="text-gray-300 mb-8">Si necesitas contacto directo conmigo por algun motivo te dejo ya estos links</p>
         <nav className="flex justify-center gap-4">
-          <a className="text-gray-300" href="http://instagram.com"><InstagramLogoIcon width={30} height={30} /></a>
-          <a className="text-gray-300" href="http://linkedin.com"><LinkedInLogoIcon width={30} height={30} /></a>
-          <a className="text-gray-300" href="http://github.com"><GitHubLogoIcon width={30} height={30} /></a>
+          <a target="_blank" className="text-gray-300" href="https://www.instagram.com/horagutierrez"><InstagramLogoIcon width={30} height={30} /></a>
+          <a target="_blank" className="text-gray-300" href="https://www.linkedin.com/in/horacioegutierrez/"><LinkedInLogoIcon width={30} height={30} /></a>
+          <a target="_blank" className="text-gray-300" href="https://github.com/HoracioGutierrez"><GitHubLogoIcon width={30} height={30} /></a>
         </nav>
       </div>
     </>
