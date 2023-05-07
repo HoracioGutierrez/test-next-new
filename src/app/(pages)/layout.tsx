@@ -22,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <PagesLayout children={children} content={content} sidebar={sidebar}  />
+        <PagesLayout sidebar={sidebar} content={content}>
+          {children}
+        </PagesLayout>
       </body>
     </html>
   )
