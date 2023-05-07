@@ -28,7 +28,7 @@ export default async function page({ params: { id } }: Props) {
         </p>
 
         <p className="mb-6">
-          <span className="text-gray-500">Distancia : </span> <br /> {star?.distance == -1 ? "Varia / Desconocida" : star?.discoveryYear + " años luz"}
+          <span className="text-gray-500">Distancia : </span> <br /> {star?.distance == -1 ? "Varia / Desconocida" : `${star?.discoveryYear} años luz`}
         </p>
 
       </section>
