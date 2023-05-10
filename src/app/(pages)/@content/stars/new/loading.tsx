@@ -2,14 +2,37 @@ type Props = {}
 
 export default function loading({ }: Props) {
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
-      {[...Array(10)].map((_, i) => (
-        <article key={i} className="shadow bg-slate-100 p-2 rounded">
-          <div className="animate-pulse h-4 w-1/2 bg-slate-300"/>
-          <div className="animate-pulse h-8 w-8 bg-slate-300 mt-2 mx-auto"/>
-          <div className="animate-pulse h-6 w-full bg-slate-300 mt-2 rounded"/>
-        </article>
-      ))}
-    </section>
+    <>
+      <p className="text-center text-2xl font-bold">Current Star Count: Loading...</p>
+      <form>
+        <div>
+          <label htmlFor="name" className="text-sm font-medium text-gray-400">Name</label>
+          <div className="animate-pulse h-6 w-full bg-slate-300 mt-2 rounded" />
+        </div>
+        <div>
+          <label htmlFor="constellation" className="text-sm font-medium text-gray-400">Constellation</label>
+          <div className="animate-pulse h-6 w-full bg-slate-300 mt-2 rounded" />
+        </div>
+        <div>
+          <label htmlFor="discoveredBy" className="text-sm font-medium text-gray-400">Discovered By</label>
+          <div className="animate-pulse h-6 w-full bg-slate-300 mt-2 rounded" />
+        </div>
+        <div className="flex gap-4">
+          <div className="w-full">
+            <label htmlFor="distance" className="text-sm font-medium text-gray-400">Distance</label>
+            <div className="animate-pulse h-6 w-full bg-slate-300 mt-2 rounded" />
+          </div>
+          <div className="w-full">
+            <label htmlFor="discoveredYear" className="text-sm font-medium text-gray-400">Discovered Year</label>
+            <div className="animate-pulse h-6 w-full bg-slate-300 mt-2 rounded" />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="description" className="text-sm font-medium text-gray-400">Description</label>
+          <div className="animate-pulse h-12 w-full bg-slate-300 mt-2 rounded" />
+        </div>
+        <button className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto">Guardando...</button>
+      </form>
+    </>
   )
 }

@@ -1,6 +1,6 @@
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
@@ -9,13 +9,26 @@ generator client {
 }
 
 model Star {
-  id              Int       @default(autoincrement()) @id
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-  name            String    @db.VarChar(255)
-  constellation   String    @db.VarChar(255)
-  distance        Int?       @db.Int
-  discoveredBy    String?    @db.VarChar(255)
-  discoveryYear   Int?       @db.Int
-  description     String?    @db.Text
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  name          String   @db.VarChar(255)
+  constellation String   @db.VarChar(255)
+  distance      Int?     @db.Int
+  discoveredBy  String?  @db.VarChar(255)
+  discoveryYear Int?     @db.Int
+  description   String?  @db.Text
+}
+
+model Comment {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  comment     String   @db.Text
+  author_name String   @db.VarChar(255)
+  avatar      String   @db.VarChar(255)
+  profile_url String   @db.VarChar(255)
+  rate        Int      @db.Int
+  verified    Boolean  @default(false)
+  active      Boolean  @default(true)
 }
