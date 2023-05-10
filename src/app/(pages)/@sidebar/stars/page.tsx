@@ -1,7 +1,10 @@
 import Link from "next/link"
 
-export const dynamic = 'force-static'
-export const runtime = 'edge';
+export async function getStaticProps() {
+  return {
+    props: {}
+  };
+}
 
 type Props = {}
 
