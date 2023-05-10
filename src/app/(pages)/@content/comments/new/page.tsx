@@ -13,30 +13,37 @@ export default function NewCommentContent({ }: Props) {
 
   const [rate, setRate] = useState(5)
 
-  const { useUploadThing , uploadFiles } = generateReactHelpers()
+  const { useUploadThing } = generateReactHelpers()
 
   const { files, getInputProps, startUpload, getRootProps, resetFiles } = useUploadThing("imageUploader")
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(commentSchema)
   })
 
-  const onSubmit = (data: any) => {
-    startUpload()
-    .then(([file])=>{
-      
-      const new_comment = {
-        ...data,
-        rate,
-        avatar : file.fileUrl
-      }
 
-      createComent(new_comment)
-    })
-    .catch(err=>{
-      console.log(err[0].error)
-    })
+  const onSubmit = async (data: any) => {
+
+    let uploaded = false
+    let file;
+
+    if (files.length > 0) {
+      const [response] = await startUpload()
+      uploaded = true
+      file = response
+    }
+
+    const new_comment = {
+      ...data,
+      rate,
+      avatar: uploaded ? file.fileUrl : `https://api.dicebear.com/6.x/initials/svg?seed=${data.author_name.split(" ").join("")}&background=%23${Math.floor(Math.random() * 16777215).toString(16)}&radius=50`,
+    }
+
+    await createComent(new_comment)
+    resetFiles()
+    reset()
   }
+
 
   return (
     <>
@@ -49,7 +56,7 @@ export default function NewCommentContent({ }: Props) {
 
         <div {...getRootProps()} className="mt-4">
           <p className="text-sm font-medium text-gray-400">Avatar</p>
-          <input type="file" {...getInputProps({ multiple: false , id : "avatar" , ...register("avatar") })} id="avatar" name="avatar" />
+          <input type="file" {...getInputProps({ multiple: false, id: "avatar", ...register("avatar") })} id="avatar" name="avatar" />
           {files.length > 0
             ? <div className="text-sm text-gray-400 text-center mt-2 mb-4 cursor-pointer hover:text-gray-600 transition-colors duration-200 ease-in-out border-2 border-dashed border-gray-300 rounded-md p-2 outline-none flex items-center justify-center flex-col">
               <img src={files[0].contents} alt="" className="h-20 w-20 rounded-full" />
@@ -74,9 +81,21 @@ export default function NewCommentContent({ }: Props) {
           </div>
         </div>
 
-        <div>
+        <div className="mt-4">
           <label htmlFor="profile_url" className="text-sm font-medium text-gray-400">URL de perfil</label>
           <input {...register("profile_url")} name="profile_url" type="url" id="profile_url" placeholder="https://..." className="w-full p-2 border-2 border-gray-300 rounded-md outline-none" />
+        </div>
+
+        <div className="mt-4">
+          <label htmlFor="relation" className="text-sm font-medium text-gray-400">Relacion <span className="text-red-500">*</span></label>
+          <select {...register("relation")} name="relation" id="relation" className="w-full p-2 border-2 border-gray-300 rounded-md outline-none text-gray-400">
+            <option value="ALUMNO">Alumno</option>
+            <option value="MANAGER">Manager</option>
+            <option value="TUTOR">Tutor</option>
+            <option value="COORDINADOR">Coordinador</option>
+            <option value="CONTRATISTA">Contratista</option>
+            <option value="OTRO">Otro</option>
+          </select>
         </div>
 
         <div className="mt-4">
