@@ -1,9 +1,7 @@
 "use server"
 import { revalidatePath } from "next/cache";
 import prisma from "./prismaClient"
-import { redirect } from 'next/navigation';
-import { string, z } from "zod";
-import { object } from "yup"
+import { z } from "zod";
 
 export async function getStars() {
   const response = await prisma.star.findMany()

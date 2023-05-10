@@ -1,6 +1,9 @@
 import { getStars } from "@/utils/dbMethods"
 import Link from "next/link"
 
+export const dynamic = 'force-static'
+export const runtime = 'edge';
+
 type Props = {}
 
 export default async function StarsContent({ }: Props) {

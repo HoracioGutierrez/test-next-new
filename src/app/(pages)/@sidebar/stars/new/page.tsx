@@ -1,5 +1,8 @@
 import Link from "next/link"
 
+export const dynamic = 'force-static'
+export const runtime = 'edge';
+
 type Props = {}
 export default function page({ }: Props) {
   return (
