@@ -1,6 +1,8 @@
 import ClientRating from "@/app/(components)/ClientRating"
 import { getComments } from "@/utils/dbMethods"
 
+export const dynamic = 'force-static'
+
 type Props = {}
 export default async function CommentsContent({ }: Props) {
 
