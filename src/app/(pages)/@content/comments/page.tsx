@@ -1,9 +1,7 @@
 import ClientRating from "@/app/(components)/ClientRating"
 import { getComments } from "@/utils/dbMethods"
 
-
-
-export async function getStaticProps() {
+export async function generateStaticParams() {
   const comments = await getComments()
   return {
     props: {
