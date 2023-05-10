@@ -1,14 +1,22 @@
 import ClientRating from "@/app/(components)/ClientRating"
 import { getComments } from "@/utils/dbMethods"
 
-export const dynamic = 'force-static'
-export const runtime = 'edge';
 
 
-type Props = {}
-export default async function CommentsContent({ }: Props) {
-
+export async function getStaticProps() {
   const comments = await getComments()
+  return {
+    props: {
+      comments
+    }
+  };
+}
+
+type Props = {
+  comments: any[]
+}
+
+export default async function CommentsContent({ comments }: Props) {
 
   return (
     <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">

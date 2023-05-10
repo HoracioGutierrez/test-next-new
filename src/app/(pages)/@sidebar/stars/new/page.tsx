@@ -1,7 +1,10 @@
 import Link from "next/link"
 
-export const dynamic = 'force-static'
-export const runtime = 'edge';
+export async function generateStaticParams() {
+  return {
+    props: {}
+  };
+}
 
 type Props = {}
 export default function page({ }: Props) {
