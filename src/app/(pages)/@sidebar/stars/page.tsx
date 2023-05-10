@@ -1,7 +1,6 @@
-"use client"
 import Link from "next/link"
 
-export async function getStaticProps() {
+export async function generateStaticParams() {
   return {
     props: {}
   };

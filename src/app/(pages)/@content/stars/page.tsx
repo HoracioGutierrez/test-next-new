@@ -1,8 +1,7 @@
-"use client"
 import { getStars } from "@/utils/dbMethods"
 import Link from "next/link"
 
-export async function getStaticProps() {
+export async function generateStaticParams() {
   const starts = await getStars()
   return {
     props: {
