@@ -1,3 +1,4 @@
+"use client"
 import { getStars } from "@/utils/dbMethods"
 import Link from "next/link"
 
