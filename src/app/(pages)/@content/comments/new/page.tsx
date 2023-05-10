@@ -1,6 +1,6 @@
 "use client"
 
-import { useForm } from "react-hook-form"
+import { useForm, FieldError } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup";
 import { commentSchema } from "@/utils/yupValidations";
 import { generateReactHelpers } from "@uploadthing/react";
@@ -44,6 +44,8 @@ export default function NewCommentContent({ }: Props) {
     reset()
   }
 
+  const authorNameError: FieldError | undefined = errors.author_name as FieldError | undefined
+  const commentError: FieldError | undefined = errors.comment as FieldError | undefined
 
   return (
     <>
@@ -51,7 +53,7 @@ export default function NewCommentContent({ }: Props) {
         <div>
           <label htmlFor="author_name" className="text-sm font-medium text-gray-400">Nombre <span className="text-red-500">*</span> </label>
           <input {...register("author_name")} name="author_name" type="text" id="author_name" placeholder="Juan Carlos" className="w-full p-2 border-2 border-gray-300 rounded-md outline-none" />
-          {errors.author_name && <span className="text-red-500 text-sm">{errors.author_name.message}</span>}
+          {errors.author_name && <span className="text-red-500 text-sm">{authorNameError?.message}</span>}
         </div>
 
         <div {...getRootProps()} className="mt-4">
@@ -101,7 +103,7 @@ export default function NewCommentContent({ }: Props) {
         <div className="mt-4">
           <label htmlFor="comment" className="text-sm font-medium text-gray-400">Comentario <span className="text-red-500">*</span></label>
           <textarea {...register("comment")} id="comment" name="comment" placeholder="Sos un groso! ... " className="w-full h-36 p-2 border-2 border-gray-300 rounded-md outline-none resize-none" />
-          {errors.comment && <span className="text-red-500 text-sm">{errors.comment.message}</span>}
+          {errors.comment && <span className="text-red-500 text-sm">{commentError?.message}</span>}
         </div>
         <button type="submit" className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto">guardar</button>
       </form>
