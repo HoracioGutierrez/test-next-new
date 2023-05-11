@@ -1,11 +1,14 @@
 import { getStars } from "@/utils/dbMethods"
+import { PrismaClient } from "@prisma/client";
 import Link from "next/link"
 
-export async function generateStaticParams() {
-  const starts = await getStars()
+export async function getStaticProps() {
+  const prisma = new PrismaClient()
+  const starts = await prisma.star.findMany()
   return {
     props: {
-      starts
+      starts,
+      revalidate: 60
     }
   };
 }
@@ -14,7 +17,7 @@ type Props = {
   starts: any[]
 }
 
-export default async function StarsContent({ starts }: Props) {
+export default function StarsContent({ starts = [] }: Props) {
 
 
   return (

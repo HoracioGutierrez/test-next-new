@@ -6,7 +6,7 @@ type Props = {
   content: React.ReactNode
 }
 
-export default function PagesLayout({ children, sidebar, content }: Props) {
+export default function PagesLayout({ sidebar, content }: Props) {
   return (
     <>
       <Header isPage />

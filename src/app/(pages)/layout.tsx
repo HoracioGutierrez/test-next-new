@@ -1,6 +1,5 @@
 import '../globals.css'
 import { Inter } from 'next/font/google'
-import LandingLayout from '../(components)/LandingLayout'
 import PagesLayout from '../(components)/PagesLayout'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -11,20 +10,16 @@ export const metadata = {
 }
 
 export default function RootLayout({
-  children,
   content,
   sidebar
 }: {
-  children: React.ReactNode,
   content: React.ReactNode,
   sidebar: React.ReactNode
 }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <PagesLayout sidebar={sidebar} content={content}>
-          {children}
-        </PagesLayout>
+        <PagesLayout sidebar={sidebar} content={content}/>
       </body>
     </html>
   )

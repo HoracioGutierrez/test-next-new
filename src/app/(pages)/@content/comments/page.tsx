@@ -1,8 +1,11 @@
 import ClientRating from "@/app/(components)/ClientRating"
 import { getComments } from "@/utils/dbMethods"
+import { PrismaClient } from "@prisma/client";
 
-export async function generateStaticParams() {
-  const comments = await getComments()
+export async function getStaticProps() {
+  //const comments = await getComments()
+  const prisma = new PrismaClient()
+  const comments = await prisma.comment.findMany()
   return {
     props: {
       comments
@@ -14,7 +17,7 @@ type Props = {
   comments: any[]
 }
 
-export default async function CommentsContent({ comments }: Props) {
+export default async function CommentsContent({ comments = [] }: Props) {
 
   return (
     <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
