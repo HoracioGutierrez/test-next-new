@@ -3,6 +3,8 @@ import { getComments } from "@/utils/noServerActions"
 
 type Props = {}
 
+export const revalidate = 60;
+
 export default async function CommentsContent({  }: Props) {
 
   const comments = await getComments()

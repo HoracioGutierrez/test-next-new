@@ -31,7 +31,7 @@ export default async function page({ params: { id } }: Props) {
         ))}
       </div>
       <div className="text-center mt-16">
-        <Link className="flex items-center gap-2 justify-center" href="/stars"><ArrowLeftIcon />volver</Link>
+        <Link className="flex items-center gap-2 justify-center" href="/stars" prefetch={false}><ArrowLeftIcon />volver</Link>
       </div>
     </section>
   )
