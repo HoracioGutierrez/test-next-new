@@ -1,11 +1,5 @@
 import Link from "next/link"
 
-export async function getStaticProps() {
-  return {
-    props: {}
-  };
-}
-
 type Props = {}
 export default function CommentsSidebar({ }: Props) {
   return (
