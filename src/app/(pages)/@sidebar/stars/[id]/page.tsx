@@ -10,9 +10,7 @@ type Props = {
 export async function generateStaticParams() {
   const stars = await getStars()
   return stars.map(star => ({
-    params: {
-      id: star.id
-    }
+    id: star.id
   }))
 }
 
@@ -27,7 +25,7 @@ export default async function page({ params: { id } }: Props) {
         <h2 className="text-4xl font-semibold capitalize">{star?.name}</h2>
       </header>
       <section>
-        
+
         <h3 className="text-xl font-semibold mb-8">Stats</h3>
 
         <p className="mb-6">
