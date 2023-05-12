@@ -6,7 +6,7 @@ import { commentSchema } from "@/utils/yupValidations";
 import { generateReactHelpers } from "@uploadthing/react";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
-import { createComent } from "@/utils/noServerActions";
+import { createComent } from "@/utils/serverActions";
 
 type Props = {}
 export default function NewCommentContent({ }: Props) {
@@ -21,31 +21,26 @@ export default function NewCommentContent({ }: Props) {
     resolver: yupResolver(commentSchema)
   })
 
-
   const onSubmit = async (data: any) => {
-    "use server"
-    handleSubmit(async () => {
-      "use server"
-      let uploaded = false
-      let file;
 
-      if (files.length > 0) {
-        const [response] = await startUpload()
-        uploaded = true
-        file = response
-      }
+    let uploaded = false
+    let file;
 
-      const new_comment = {
-        ...data,
-        rate,
-        avatar: uploaded ? file.fileUrl : `https://api.dicebear.com/6.x/initials/svg?seed=${data.author_name.split(" ").join("")}&background=%23${Math.floor(Math.random() * 16777215).toString(16)}&radius=50`,
-      }
+    if (files.length > 0) {
+      const [response] = await startUpload()
+      uploaded = true
+      file = response
+    }
 
-      await createComent(new_comment)
-      resetFiles()
-      reset()
-    })
+    const new_comment = {
+      ...data,
+      rate,
+      avatar: uploaded ? file.fileUrl : `https://api.dicebear.com/6.x/initials/svg?seed=${data.author_name.split(" ").join("")}&background=%23${Math.floor(Math.random() * 16777215).toString(16)}&radius=50`,
+    }
 
+    await createComent(new_comment)
+    resetFiles()
+    reset()
   }
 
   const authorNameError: FieldError | undefined = errors.author_name as FieldError | undefined
@@ -53,7 +48,7 @@ export default function NewCommentContent({ }: Props) {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="author_name" className="text-sm font-medium text-gray-400">Nombre <span className="text-red-500">*</span> </label>
           <input {...register("author_name")} name="author_name" type="text" id="author_name" placeholder="Juan Carlos" className="w-full p-2 border-2 border-gray-300 rounded-md outline-none" />

@@ -97,4 +97,3 @@ export async function createComent(data: any) {
     throw new Error("Error creating comment")
   }
 }
-
