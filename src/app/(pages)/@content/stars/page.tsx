@@ -1,28 +1,15 @@
-import { getStars } from "@/utils/dbMethods"
-import { PrismaClient } from "@prisma/client";
+import { getStars } from "@/utils/noServerActions"
 import Link from "next/link"
 
-export async function getStaticProps() {
-  const prisma = new PrismaClient()
-  const starts = await prisma.star.findMany()
-  return {
-    props: {
-      starts,
-      revalidate: 60
-    }
-  };
-}
+type Props = {}
 
-type Props = {
-  starts: any[]
-}
+export default async function StarsContent({ }: Props) {
 
-export default function StarsContent({ starts = [] }: Props) {
-
+  const stars = await getStars()
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
-      {starts.map(star => (
+      {stars.map(star => (
         <article key={star.id} className="shadow bg-slate-100 p-2 rounded">
           <h2 className="font-semibold capitalize mb-2">{star.name}</h2>
           <div className="text-center">

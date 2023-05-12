@@ -1,4 +1,4 @@
-import { getStar } from "@/utils/dbMethods"
+import { getStar, getStars } from "@/utils/noServerActions"
 import { ArrowLeftIcon } from "@radix-ui/react-icons"
 import Link from "next/link"
 
@@ -6,6 +6,15 @@ type Props = {
   params: {
     id: string
   }
+}
+
+export async function generateStaticParams() {
+  const stars = await getStars()
+  return stars.map(star => ({
+    params: {
+      id: star.id
+    }
+  }))
 }
 
 export default async function page({ params: { id } }: Props) {

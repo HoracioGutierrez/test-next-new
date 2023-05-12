@@ -6,7 +6,7 @@ import { commentSchema } from "@/utils/yupValidations";
 import { generateReactHelpers } from "@uploadthing/react";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
-import { createComent } from "@/utils/dbMethods";
+import { createComent } from "@/utils/noServerActions";
 
 type Props = {}
 export default function NewCommentContent({ }: Props) {

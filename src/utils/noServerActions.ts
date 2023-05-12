@@ -1,70 +1,67 @@
-"use server"
-import { revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache"
 import prisma from "./prismaClient"
-import { z } from "zod";
+import { z } from "zod"
+import { cache } from "react"
 
-export async function getStars() {
+export const getStars = cache(async () => {
   const response = await prisma.star.findMany()
   return response
-}
+})
 
-export async function getStar(id: number) {
-  const response = await prisma.star.findUnique({
-    where: {
-      id,
-    },
-  })
+export async function getComments() {
+  const response = await prisma.comment.findMany()
   return response
 }
 
+export const getStar = cache(async (id: number) => {
+  const response = await prisma.star.findUnique({ where: { id }})
+  return response
+})
 
-export interface Star {
-  name: string
-  distance: number
-  description: string,
-  discoveredYear: number,
-  discoveredBy: string,
-  constellation: string
+
+
+export async function getStartCount() {
+  const response = await prisma.star.count()
+  return response
 }
 
-export async function createStar(data: any) {
+export const createStar = async (star : any) => {
   try {
-    const response = await prisma.star.create({
+    const resultado = await prisma.star.create({
       data: {
-        name: data.name,
-        distance: Number(data.distance),
-        description: data.description,
-        discoveryYear: Number(data.discoveryYear),
-        discoveredBy: data.discoveredBy,
-        constellation: data.constellation
+        name: star.name as string,
+        distance: Number(star.distance),
+        description: star.description as string,
+        discoveryYear: Number(star.discoveryYear),
+        discoveredBy: star.discoveredBy as string,
+        constellation: star.constellation as string
       },
     })
     revalidatePath("/stars/new")
-    return response
+    return resultado
   } catch (e) {
     throw new Error("Error creating star")
   }
 }
 
-function withStarValidation(callback: Function) {
+export const validateStar = (formData: FormData) => {
+  const name = formData.get('name')
+  const distance = formData.get('distance')
+  const description = formData.get('description')
+  const discoveryYear = formData.get('discoveryYear')
+  const discoveredBy = formData.get('discoveredBy')
+  const constellation = formData.get('constellation')
 
-  return async (formData: FormData) => {
+  const star = {
+    name,
+    distance,
+    description,
+    discoveryYear,
+    discoveredBy,
+    constellation
+  }
 
-    const name = formData.get('name')
-    const distance = formData.get('distance')
-    const description = formData.get('description')
-    const discoveryYear = formData.get('discoveryYear')
-    const discoveredBy = formData.get('discoveredBy')
-    const constellation = formData.get('constellation')
-
-    const star = {
-      name,
-      distance,
-      description,
-      discoveryYear,
-      discoveredBy,
-      constellation
-    }
+  try {
 
     const schema = z.object({
       name: z.string({ required_error: "Name is required" }).min(3, "Name must be at least 3 characters long").max(50, "Name must be less than 50 characters long").regex(/^[a-zA-Z\s]*$/, "Discoverer must only contain letters and spaces"),
@@ -74,22 +71,13 @@ function withStarValidation(callback: Function) {
       discoveredBy: z.string({ required_error: "Discoverer is required" }).min(3, "Discoverer must be at least 3 characters long").max(50, "Discoverer must be less than 50 characters long").regex(/^[a-zA-Z\s]*$/, "Discoverer must only contain letters and spaces"),
       constellation: z.string({ required_error: "Constellation is required" }).min(3, "Constellation must be at least 3 characters long").max(50, "Constellation must be less than 50 characters long").regex(/^[a-zA-Z\s]*$/, "Constellation must be an emoji"),
     })
-    try {
-      schema.parse(star)
-      return callback(star)
-    } catch (e: any) {
-      throw new Error(JSON.stringify(e.errors[0]))
-    }
+
+    schema.parse(star)
+    return star
+
+  } catch (e) {
+    return false
   }
-}
-
-
-export const createStarWithValidation = withStarValidation(createStar)
-
-
-export async function getStartCount() {
-  const response = await prisma.star.count()
-  return response
 }
 
 export async function createComent(data: any) {
@@ -110,7 +98,3 @@ export async function createComent(data: any) {
   }
 }
 
-export async function getComments() {
-  const response = await prisma.comment.findMany()
-  return response
-}

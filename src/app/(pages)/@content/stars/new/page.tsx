@@ -1,14 +1,22 @@
-import { createStarWithValidation, getStartCount } from "@/utils/dbMethods"
+import { createStar, getStartCount, validateStar } from "@/utils/noServerActions"
 
 type Props = {}
 export default function page({ }: Props) {
 
   const count = getStartCount()
 
+  async function handleSubmit (formData : FormData) {
+    "use server"
+    const isValidStar = validateStar(formData)
+    if (isValidStar != false) {
+      createStar(isValidStar)
+    }
+  }
+
   return (
     <>
       <p className="text-center text-2xl font-bold">Current Star Count: {count}</p>
-      <form action={createStarWithValidation}>
+      <form action={handleSubmit}>
         <div>
           <label htmlFor="name" className="text-sm font-medium text-gray-400">Name</label>
           <input name="name" type="text" id="name" placeholder="Star Name" className="w-full p-2 border-2 border-gray-300 rounded-md outline-none" />
