@@ -3,7 +3,6 @@
 import { revalidatePath } from "next/cache"
 import prisma from "./prismaClient"
 
-
 export async function createComent(data: any) {
   try {
     const response = await prisma.comment.create({
@@ -16,6 +15,7 @@ export async function createComent(data: any) {
       },
     })
     revalidatePath("/comments/new")
+    revalidatePath("/comments")
     return response
   } catch (e) {
     throw new Error("Error creating comment")
