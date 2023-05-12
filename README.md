@@ -68,7 +68,7 @@ Now you can access the website at http://localhost:3000.
 
 ## To do 📝
 
-- [ ] Add loaders to all forms
+- [x] Add loaders to all forms (kind of)
 - [ ] Add a dark mode toggle
 - [ ] Add a blog section
 - [ ] Add a contact form
