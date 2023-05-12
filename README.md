@@ -2,7 +2,7 @@
 
 Hello there! Welcome to the GitHub repository of my personal portfolio website. I'm Horacio Gutierrez, a front-end web developer with a passion for building attractive and functional web applications. In this portfolio, I showcase my skills, experience, and recent projects.
 
-Feel free to explore the repository and check out my live portfolio [here](https://horaciogutierrez.com).
+Feel free to explore the repository and check out my live portfolio [here](https://test-next-new.vercel.app/).
 
 ## Stack 🛠
 
