@@ -7,8 +7,10 @@ import { generateReactHelpers } from "@uploadthing/react";
 import { Rating } from "react-simple-star-rating";
 import { useState } from "react";
 import { createComent } from "@/utils/serverActions";
+import toast, { Toaster } from 'react-hot-toast';
 
 type Props = {}
+
 export default function NewCommentContent({ }: Props) {
 
   const [rate, setRate] = useState(5)
@@ -22,26 +24,35 @@ export default function NewCommentContent({ }: Props) {
   })
 
   const onSubmit = async (data: any) => {
-
+    const loadingToast = toast.loading("Enviando comentario...")
     let uploaded = false
     let file;
 
-    if (files.length > 0) {
-      const [response] = await startUpload()
-      uploaded = true
-      file = response
-    }
+    try {
+      if (files.length > 0) {
+        const [response] = await startUpload()
+        uploaded = true
+        file = response
+      }
 
-    const new_comment = {
-      ...data,
-      rate,
-      avatar: uploaded ? file.fileUrl : `https://api.dicebear.com/6.x/initials/svg?seed=${data.author_name.split(" ").join("")}&background=%23${Math.floor(Math.random() * 16777215).toString(16)}&radius=50`,
-    }
+      const new_comment = {
+        ...data,
+        rate,
+        avatar: uploaded ? file.fileUrl : `https://api.dicebear.com/6.x/initials/svg?seed=${data.author_name.split(" ").join("")}&background=%23${Math.floor(Math.random() * 16777215).toString(16)}&radius=50`,
+      }
 
-    await createComent(new_comment)
-    resetFiles()
-    reset()
+      await createComent(new_comment)
+      resetFiles()
+      reset()
+      setRate(5)
+      toast.dismiss(loadingToast)
+      toast.success("Comentario enviado!", { id: loadingToast })
+    } catch (error) {
+      toast.dismiss(loadingToast)
+      toast.error("Error al enviar comentario", { id: loadingToast })
+    }
   }
+
 
   const authorNameError: FieldError | undefined = errors.author_name as FieldError | undefined
   const commentError: FieldError | undefined = errors.comment as FieldError | undefined
@@ -106,6 +117,7 @@ export default function NewCommentContent({ }: Props) {
         </div>
         <button type="submit" className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto">guardar</button>
       </form>
+      <Toaster />
     </>
   )
 }
