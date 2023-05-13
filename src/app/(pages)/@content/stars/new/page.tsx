@@ -1,4 +1,4 @@
-import ClientToast from "@/app/(components)/ClientToast"
+
 import { createStar, getStartCount, validateStar } from "@/utils/serverActions"
 
 export const revalidate = 60
@@ -48,7 +48,6 @@ export default function page({ }: Props) {
           <textarea id="description" name="description" placeholder="Star Description" className="w-full h-36 p-2 border-2 border-gray-300 rounded-md outline-none resize-none" />
         </div>
         <button className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto">guardar</button>
-        <ClientToast/>
       </form>
     </>
   )
