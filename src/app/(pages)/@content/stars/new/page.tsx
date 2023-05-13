@@ -1,8 +1,10 @@
 import ClientToast from "@/app/(components)/ClientToast"
-import { getStartCount } from "@/utils/noServerActions"
-import { createStar, validateStar } from "@/utils/serverActions"
+import { createStar, getStartCount, validateStar } from "@/utils/serverActions"
+
+export const revalidate = 60
 
 type Props = {}
+
 export default function page({ }: Props) {
 
   const count = getStartCount()

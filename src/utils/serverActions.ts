@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache"
 import prisma from "./prismaClient"
 import { z } from "zod"
+import { cache } from "react"
 
 export async function createComent(data: any) {
   try {
@@ -78,3 +79,8 @@ export const validateStar = (formData: FormData) => {
     return false
   }
 }
+
+export const getStartCount = cache(async () => {
+  const response = await prisma.star.count()
+  return response
+})

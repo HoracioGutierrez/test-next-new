@@ -1,6 +1,5 @@
 import { revalidatePath } from "next/cache"
 import prisma from "./prismaClient"
-import { z } from "zod"
 import { cache } from "react"
 
 export const getStars = cache(async () => {
@@ -17,13 +16,6 @@ export const getStar = cache(async (id: number) => {
   const response = await prisma.star.findUnique({ where: { id }})
   return response
 })
-
-
-
-export async function getStartCount() {
-  const response = await prisma.star.count()
-  return response
-}
 
 
 export async function createComent(data: any) {
