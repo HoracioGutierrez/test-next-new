@@ -27,6 +27,9 @@ Feel free to explore the repository and check out my live portfolio [here](https
 - **Static Generation** and **Server-Side Rendering** for faster page loads
 - **Incremental Static Regeneration** for faster page loads
 - **Server Actions** in form submission to try out the latest Next.js features and also integrated inside a **Client Component** method after form validation 
+- **Dynamic Sitemap Generation** for SEO
+- **Dynamic Robots.txt Generation** for SEO
+- **Dynamic icon , favicon, and manifest generation** for SEO
 
 ## Getting Started 🚀
 
