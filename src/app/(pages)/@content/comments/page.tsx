@@ -8,7 +8,7 @@ export const metadata : Metadata = {
 
 type Props = {}
 
-export const revalidate = 60;
+export const revalidate = 30;
 
 export default async function CommentsContent({  }: Props) {
 

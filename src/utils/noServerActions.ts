@@ -8,12 +8,12 @@ export const getStars = cache(async () => {
 })
 
 export async function getComments() {
-  const response = await prisma.comment.findMany()
+  const response = await prisma.comment.findMany({ orderBy: { createdAt: "desc" } })
   return response
 }
 
 export const getStar = cache(async (id: number) => {
-  const response = await prisma.star.findUnique({ where: { id }})
+  const response = await prisma.star.findUnique({ where: { id } })
   return response
 })
 
