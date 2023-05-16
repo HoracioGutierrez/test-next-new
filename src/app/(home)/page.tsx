@@ -1,6 +1,7 @@
 import { InstagramLogoIcon, LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
 import NavigationBar from "../(components)/NavigationBar"
 
+ 
 export default function Home() {
   return (
     <>

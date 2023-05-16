@@ -1,5 +1,10 @@
 import ClientRating from "@/app/(components)/ClientRating"
 import { getComments } from "@/utils/noServerActions"
+import { Metadata } from "next";
+
+export const metadata : Metadata = {
+  title : "Comentarios",
+}
 
 type Props = {}
 

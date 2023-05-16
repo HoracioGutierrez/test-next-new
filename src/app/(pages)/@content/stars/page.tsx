@@ -1,5 +1,11 @@
+import { Metadata } from 'next';
 import { getStars } from "@/utils/noServerActions"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Stars"
+};
+
 
 type Props = {}
 

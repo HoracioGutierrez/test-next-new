@@ -11,8 +11,10 @@ export default function PagesLayout({ sidebar, content }: Props) {
     <>
       <Header isPage />
       <main className="md:grid md:grid-cols-[minmax(400px,1fr)_2fr] flex-grow">
-        <div className="sidebar p-4 text-gray-200">
-          {sidebar}
+        <div className="sidebar p-4 py-20 text-gray-200 relative">
+          <div className="sticky top-20 left-0">
+            {sidebar}
+          </div>
         </div>
         <div className="content p-4 pt-20 bg-gray-200 h-full">
           {content}
