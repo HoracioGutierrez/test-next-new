@@ -4,10 +4,6 @@ import { Metadata } from "next"
 import Collapse from "rc-collapse"
 import "rc-collapse/assets/index.css"
 
-export const metadata: Metadata = {
-  title: "Acerca de mi",
-}
-
 type Props = {}
 export default function AboutContent({ }: Props) {
 
