@@ -21,7 +21,7 @@ export default async function StarsContent({ }: Props) {
           <div className="text-center">
             {star.constellation}
           </div>
-          <button className="bg-slate-600 text-white p-2 mt-4 w-full rounded">
+          <button className="bg-slate-600 text-white p-2 mt-4 w-full rounded hover:text-yellow-200 transition-colors hover:bg-slate-700">
             <Link href={`/stars/${star.id}`} prefetch={false}>detalle</Link>
           </button>
         </article>

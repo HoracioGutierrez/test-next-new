@@ -39,7 +39,7 @@ export default async function page({ params: { id } }: Props) {
         <p className="mb-6">
           <span className="text-gray-500">Distancia : </span> <br /> {star?.distance == -1 ? "Varia / Desconocida" : `${star?.discoveryYear} años luz`}
         </p>
-        <Link href="/stars" prefetch={false} className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit">volver</Link>
+        <Link href="/stars" prefetch={false} className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit hover:bg-slate-700 hover:text-yellow-200 transition-colors">volver</Link>
       </section>
     </>
   )

@@ -115,7 +115,7 @@ export default function NewCommentContent({ }: Props) {
           <textarea {...register("comment")} id="comment" name="comment" placeholder="Sos un groso! ... " className="w-full h-36 p-2 border-2 border-gray-300 rounded-md outline-none resize-none" />
           {errors.comment && <span className="text-red-500 text-sm">{commentError?.message}</span>}
         </div>
-        <button type="submit" className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto">guardar</button>
+        <button type="submit" className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto hover:bg-slate-700 hover:text-yellow-200 transition-colors">guardar</button>
       </form>
       <Toaster />
     </>

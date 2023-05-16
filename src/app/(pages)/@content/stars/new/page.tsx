@@ -47,7 +47,7 @@ export default function page({ }: Props) {
           <label htmlFor="description" className="text-sm font-medium text-gray-400">Description</label>
           <textarea id="description" name="description" placeholder="Star Description" className="w-full h-36 p-2 border-2 border-gray-300 rounded-md outline-none resize-none" />
         </div>
-        <button className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto">guardar</button>
+        <button className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto hover:bg-slate-700 hover:text-yellow-200 transition-colors">guardar</button>
       </form>
     </>
   )

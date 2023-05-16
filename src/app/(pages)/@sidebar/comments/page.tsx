@@ -10,7 +10,7 @@ export default function CommentsSidebar({ }: Props) {
       <section>
         <p className="pb-3">Aca supuestamente se van a ver los comentarios que gente random me va dejando, como por ejemplo alumnos que tomaron clase conmigo, managers de alguna empresa por la que pase a dar un curso o bien estuve desarrollando como freelance, etc.</p>
         <p className="pb-3">Digo supuestamente porque en teoria funciona pero anda a saber cuando se va a caer todo esto no?</p>
-        <Link prefetch={false}  href="/comments/new" className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit">agregar comentario</Link>
+        <Link prefetch={false}  href="/comments/new" className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit hover:bg-slate-700 hover:text-yellow-200 transition-colors">agregar comentario</Link>
       </section>
     </>
   )

@@ -9,7 +9,7 @@ export default function page({ }: Props) {
       </header>
       <section>
         <p className="pb-3">Aca es bastante obvio, vas a poder agregar una estrella. Esto y probablemente la gran mayoria de los sidebars estan siendo ssr, incluido los dinamicos, no necesariamente ssg</p>
-        <Link href="/stars" prefetch={false} className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit">volver</Link>
+        <Link href="/stars" prefetch={false} className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit hover:bg-slate-700 hover:text-yellow-200 transition-colors">volver</Link>
       </section>
     </>
   )
