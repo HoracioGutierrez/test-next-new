@@ -16,7 +16,7 @@ export default function PagesLayout({ sidebar, content }: Props) {
             {sidebar}
           </div>
         </div>
-        <div className="content p-4 pt-20 bg-gray-200 h-full">
+        <div className="content p-4 pt-20 bg-gray-200 h-fit md:h-full">
           {content}
         </div>
       </main>
