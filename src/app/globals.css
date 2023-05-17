@@ -15,7 +15,23 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #1f2937;
+    /* Idea original : background-color: #1f2937; */
+    /* Idea Instagram : background-image: linear-gradient(180deg,
+        hsl(242deg 100% 21%) 2%,
+        hsl(283deg 100% 20%) 57%,
+        hsl(308deg 100% 22%) 72%,
+        hsl(323deg 100% 27%) 81%,
+        hsl(333deg 100% 32%) 87%,
+        hsl(340deg 100% 35%) 91%,
+        hsl(353deg 76% 42%) 94%,
+        hsl(11deg 73% 45%) 97%,
+        hsl(26deg 90% 41%) 98%,
+        hsl(36deg 100% 39%) 99%,
+        hsl(45deg 100% 38%) 100%,
+        hsl(55deg 100% 36%) 100%); */
+    /* Idea previa a la final : background-image: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
+    /* Idea final */
+    background-image: linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
   }
 }
 
@@ -38,4 +54,20 @@ svg.star-svg {
   background: linear-gradient(to bottom,
       rgba(255, 255, 255, 0) 0%,
       rgba(255, 255, 255, 1) 70%);
+}
+
+.btn {
+  transition: background 0.3s;
+  background-position: center;
+}
+
+
+.btn:hover {
+  background: rgb(27, 27, 27) radial-gradient(circle, transparent 1%, rgb(27, 27, 27) 1%) center/15000%;
+}
+
+.btn:active {
+  background-color: rgba(255, 255, 255, .3);
+  background-size: 100%;
+  transition: background 0s;
 }
