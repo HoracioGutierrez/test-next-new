@@ -32,6 +32,11 @@ body {
     /* Idea previa a la final : background-image: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
     /* Idea final */
     background-image: linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
+    /* prefixes */
+    /* background-image: -webkit-linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
+    background-image: -moz-linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
+    background-image: -o-linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
+    background-image: -ms-linear-gradient(to bottom, #0a0f18 0%, #2d4a6b); */
   }
 }
 

@@ -14,13 +14,13 @@ export default function Home() {
         <div className="flex justify-center mb-8">
           <NavigationBar />
         </div>
-        <p className="text-gray-300 mb-2">Van a tener que tenerme paciencia porque momentaneamente sigo probando cosas nuevas como</p>
+        {/* <p className="text-gray-300 mb-2">Van a tener que tenerme paciencia porque momentaneamente sigo probando cosas nuevas como</p>
         <ul className="text-yellow-200 mb-8 w-fit m-auto flex">
           <li>rutas paralelas<span className="text-gray-300 mx-2">|</span></li>
           <li>rutas agrupatas<span className="text-gray-300 mx-2">|</span></li>
           <li>opt-out layouts<span className="text-gray-300 mx-2">|</span></li>
           <li>next actions</li>
-        </ul>
+        </ul> */}
         <p className="text-gray-300 mb-8">Si necesitas contacto directo conmigo por algun motivo te dejo ya estos links</p>
         <nav className="flex justify-center gap-4">
           <a target="_blank" className="text-gray-300 hover:text-yellow-200 transition-colors" href="https://www.instagram.com/horagutierrez"><InstagramLogoIcon width={30} height={30} /></a>
