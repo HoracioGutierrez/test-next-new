@@ -1,4 +1,5 @@
 
+import Button from "@/app/(components)/Button"
 import { createStar, getStartCount, validateStar } from "@/utils/serverActions"
 
 export const revalidate = 60
@@ -19,7 +20,7 @@ export default function page({ }: Props) {
 
   return (
     <>
-      <p className="text-center text-2xl font-bold">Current Star Count: {count}</p>
+      <p className="text-center text-2xl font-bold text-white">Current Star Count: {count}</p>
       <form action={handleSubmit}>
         <div>
           <label htmlFor="name" className="text-sm font-medium text-gray-400">Name</label>
@@ -47,7 +48,7 @@ export default function page({ }: Props) {
           <label htmlFor="description" className="text-sm font-medium text-gray-400">Description</label>
           <textarea id="description" name="description" placeholder="Star Description" className="w-full h-36 p-2 border-2 border-gray-300 rounded-md outline-none resize-none" />
         </div>
-        <button className="bg-slate-600 text-white p-2 mt-4 rounded block w-fit ml-auto hover:bg-slate-700 hover:text-yellow-200 transition-colors">guardar</button>
+        <Button className="ml-auto">guardar</Button>
       </form>
     </>
   )

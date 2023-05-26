@@ -11,16 +11,16 @@ export default function AboutContent({ }: Props) {
   return (
     <div className="h-full flex flex-col">
       <header className="mb-6">
-        <h2 className="text-2xl font-semibold text-center">{"${Mi Nombre}"}</h2>
+        <h2 className="text-2xl font-semibold text-center text-white">{"${Mi Nombre}"}</h2>
       </header>
 
-      <p className="mb-4">No. No me equivoque y deje una variable en el titulo mal escapada; creo que a este punto ya quedo claro que mi nombre es <span className="font-semibold">Horacio Gutierrez</span> asi que como también soy tan gracioso e ingenioso, hice ese chiste para dar a entender que domino el humor de programación (?)</p>
-      <p className="mb-4">Te dejo el contenido collapsado asi no tenes que andar leyendo todo y podes hacer un <span className="font-semibold">TL;DR</span></p>
+      <p className="mb-4 text-white">No. No me equivoque y deje una variable en el titulo mal escapada; creo que a este punto ya quedo claro que mi nombre es <span className="font-semibold">Horacio Gutierrez</span> asi que como también soy tan gracioso e ingenioso, hice ese chiste para dar a entender que domino el humor de programación (?)</p>
+      <p className="mb-4 text-white">Te dejo el contenido collapsado asi no tenes que andar leyendo todo y podes hacer un <span className="font-semibold">TL;DR</span></p>
       <Collapse openMotion={motion} className="mb-6" accordion expandIcon={()=><DoubleArrowDownIcon />} destroyInactivePanel items={[
         {
           label: (
             <header className=" px-4 rounded">
-              <h3 className="font-semibold flex items-center gap-2"> ¿Como empece?</h3>
+              <h3 className="font-semibold flex items-center gap-2 text-slate-400"> ¿Como empece?</h3>
             </header>
           ),
           children: (
@@ -33,7 +33,7 @@ export default function AboutContent({ }: Props) {
         {
           label: (
             <header className=" px-4 rounded">
-              <h3 className="font-semibold flex items-center gap-2">¿Por que me dedico a la enseñanza?</h3>
+              <h3 className="font-semibold flex items-center gap-2 text-slate-400">¿Por que me dedico a la enseñanza?</h3>
             </header>
           ),
           children: (
@@ -46,7 +46,7 @@ export default function AboutContent({ }: Props) {
         {
           label: (
             <header className=" px-4 rounded">
-              <h3 className="font-semibold flex items-center gap-2">¿Que hago en mi tiempo libre?</h3>
+              <h3 className="font-semibold flex items-center gap-2 text-slate-400">¿Que hago en mi tiempo libre?</h3>
             </header>
           ),
           children: (
@@ -58,7 +58,7 @@ export default function AboutContent({ }: Props) {
         {
           label: (
             <header className=" px-4 rounded">
-              <h3 className="font-semibold flex items-center gap-2">My Stack (con lo que hice este portfolio tambien)</h3>
+              <h3 className="font-semibold flex items-center gap-2 text-slate-400">My Stack (con lo que hice este portfolio tambien)</h3>
             </header>
           ),
           children: (
@@ -82,7 +82,7 @@ export default function AboutContent({ }: Props) {
         {
           label: (
             <header className=" px-4 rounded">
-              <h3 className="font-semibold flex items-center gap-2">Features</h3>
+              <h3 className="font-semibold flex items-center gap-2 text-slate-400">Features</h3>
             </header>
           ),
           children: (
@@ -101,7 +101,7 @@ export default function AboutContent({ }: Props) {
         }
       ]}>
       </Collapse>
-      <nav className="flex justify-center gap-4 shrink-0">
+      <nav className="flex justify-center gap-4 shrink-0 text-white">
         <a target="_blank" href="https://www.instagram.com/horagutierrez"><InstagramLogoIcon width={30} height={30} /></a>
         <a target="_blank" href="https://www.linkedin.com/in/horacioegutierrez/"><LinkedInLogoIcon width={30} height={30} /></a>
         <a target="_blank" href="https://github.com/HoracioGutierrez"><GitHubLogoIcon width={30} height={30} /></a>
