@@ -2,19 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-  min-height: 100%;
-}
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  scrollbar-gutter: stable both-edges;
-  scroll-behavior: smooth;
-}
-
 @media (prefers-color-scheme: dark) {
   body {
     /* Idea original : background-color: #1f2937; */
@@ -33,7 +20,7 @@ body {
         hsl(55deg 100% 36%) 100%); */
     /* Idea previa a la final : background-image: linear-gradient(to bottom, #0f0c29, #302b63, #24243e); */
     /* Idea final */
-    background-image: linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
+    /* background-image: linear-gradient(to bottom, #0a0f18 0%, #2d4a6b); */
     /* prefixes */
     /* background-image: -webkit-linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
     background-image: -moz-linear-gradient(to bottom, #0a0f18 0%, #2d4a6b);
@@ -42,14 +29,14 @@ body {
   }
 }
 
-svg.star-svg {
+/* svg.star-svg {
   display: inline;
 }
 
 .transparent-gradiant {
   pointer-events: none;
-}
-
+} */
+/* 
 .transparent-gradiant::after {
   content: "";
   pointer-events: none;
@@ -90,4 +77,38 @@ svg.star-svg {
 
 .rc-collapse-content {
   background-color: transparent!important;
+} */
+
+
+
+.navigation-link::before {
+  content : "{";
+  position: relative;
+  left: 0.5rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.navigation-link::after {
+  content: "}";
+  position: relative;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.navigation-link.active::before , .navigation-link:not(.active):hover::before {
+  opacity: 1;
+  left: -0.5rem;
+}
+
+.navigation-link.active::after , .navigation-link:not(.active):hover::after{
+  opacity: 1;
+  right: -0.5rem;
+}
+
+.navigation-link:not(.active):hover::before , .navigation-link:not(.active):hover::after{
+  color: #007eff;
 }
