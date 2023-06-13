@@ -112,3 +112,19 @@
 .navigation-link:not(.active):hover::before , .navigation-link:not(.active):hover::after{
   color: #007eff;
 }
+
+.main-title {
+  -webkit-text-stroke: 3px #007eff;
+}
+
+.hashtag {
+  -webkit-text-stroke: 3px white;
+}
+
+.next , .efecto {
+  -webkit-text-stroke: 1px #007eff;
+}
+/* 
+.efecto {
+  -webkit-text-stroke: 1px white;
+} */
