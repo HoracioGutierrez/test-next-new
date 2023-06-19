@@ -16,7 +16,7 @@ export default function RootLayout({ children }: Props) {
     <html className='bg-dark'>
       <body>
         <Header/>
-        <main className='p-4 lg:p-16'>
+        <main className='px-4 lg:px-16 pt-[72px] lg:!pt-[90px]'>
           {children}
         </main>
       </body>

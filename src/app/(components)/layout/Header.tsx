@@ -16,7 +16,7 @@ export default function Header({ }: Props) {
 
   return (
     <>
-      <header className="h-14 lg:h-[74px] flex items-center px-4 lg:px-[60px] justify-between border-b-[rgba(255,255,255,0.2)] border-b">
+      <header className="h-14 lg:h-[74px] flex items-center px-4 lg:px-[60px] justify-between border-b-[rgba(255,255,255,0.2)] border-b fixed w-full bg-dark z-10">
         <nav id="navigation" className="flex gap-[50px]">
           
           {mobile === false && (
