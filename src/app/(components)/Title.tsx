@@ -18,8 +18,8 @@ type Props = {
 }
 
 export default function Title({ children, as, className, type , filled = true , style }: Props) {
-    const fontSize = type === "hero" ? "text-[50px] min-[350px]:text-[55px] min-[430px]:text-[70px] min-[530px]:text-[85px] min-[630px]:text-[100px] min-[730px]:text-[120px] lg:text-[163px]" : type === "section" ? "text-6xl" : "text-4xl";
-    const lineHeight = type === "hero" ? "leading-[50px] min-[350px]:leading-[55px] min-[430px]:leading-[60px] min-[530px]:leading-[80px] min-[630px]:leading-[100px] min-[730px]:leading-[110px] lg:leading-[123px]" : type === "section" ? "leading-9" : "leading-8";
+    const fontSize = type === "hero" ? "text-[50px] min-[350px]:text-[55px] min-[430px]:text-[70px] min-[530px]:text-[85px] min-[630px]:text-[100px] min-[730px]:text-[120px] lg:text-[163px]" : type === "section" ? "text-[90px]" : "text-4xl";
+    const lineHeight = type === "hero" ? "leading-[50px] min-[350px]:leading-[55px] min-[430px]:leading-[60px] min-[530px]:leading-[80px] min-[630px]:leading-[100px] min-[730px]:leading-[110px] lg:leading-[123px]" : type === "section" ? "leading-[80px]" : "leading-8";
     const fontWeight = type === "hero" ? "font-bold" : "font-medium";
   
     return (

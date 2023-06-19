@@ -1,15 +1,16 @@
 import Text from "./Text"
 
 type Props = {
-    text: string,
-    className ?: string
+    text?: string,
+    className?: string,
+    children?: React.ReactNode
 }
 
-export default function BlueButton({ text , className }: Props) {
+export default function BlueButton({ text, className, children }: Props) {
     return (
         <button className={`${className} p-3.5 uppercase border border-accent text-accent flex items-center gap-2.5 bg-accent-7`}>
             <Text type="button">
-                {text}
+                {children ? children : text}
             </Text>
             <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M-0.527832 9.59564L7.52761 1.81659" stroke="#007EFF" strokeWidth="1.6243" strokeLinecap="square" strokeLinejoin="bevel" />
