@@ -1,34 +1,38 @@
-"use client"
-import Link from "next/link"
 import { GitHubLogoIcon, InstagramLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons"
-import { usePathname } from "next/navigation"
+import CurlyLink from "./CurlyLink"
+import GrayIcon from "./GrayIcon"
+import Link from "next/link"
 
-type Props = {
-}
-
+type Props = {}
 
 export default function Header({ }: Props) {
-
-  const pathname = usePathname()
-
   return (
-    <header className="flex justify-between items-center py-5 px-16 border-b-2 border-b-[#232323]">
-      <nav className="navigation-links flex gap-12 uppercase">
-        <Link href="/" className={`navigation-link font-semibold text-lg tracking-tight  ${pathname == "/" ? "text-[#007eff] active" : "text-white"}`}>home</Link>
-        <Link href="/stars" className={`navigation-link font-semibold text-lg tracking-tight  ${pathname == "/stars" ? "text-[#007eff] active" : "text-white"} `}>stars</Link>
-        <Link href="/reviews" className={`navigation-link font-semibold text-lg tracking-tight  ${pathname == "/reviews" ? "text-[#007eff] active" : "text-white"}`}>reviews</Link>
-        <Link href="/about" className={`navigation-link font-semibold text-lg tracking-tight  ${pathname == "/about" ? "text-[#007eff] active" : "text-white"}`}>about</Link>
+    <header className="h-[74px] flex items-center px-[60px] justify-between border-b-[rgba(255,255,255,0.2)] border-b">
+      <nav id="navigation" className="flex gap-[50px]">
+        <CurlyLink href='/'>HOME</CurlyLink>
+        <CurlyLink href='/stars'>STARS</CurlyLink>
+        <CurlyLink href='/reviews'>REVIEWS</CurlyLink>
+        <CurlyLink href='/about'>ABOUT</CurlyLink>
       </nav>
-      <nav className="social-links flex items-center text-white gap-5">
-        <a target="_blank" className="p-2 bg-[rgba(255,255,255,0.1)] border-dashed border-[rgba(255,255,255,0.1)] border hover:bg-[#007eff] transition-[background-color] duration-300" href="https://github.com/HoracioGutierrez">
-          <GitHubLogoIcon width={30} height={30} />
-        </a>
-        <a target="_blank" className="p-2 bg-[rgba(255,255,255,0.1)] border-dashed border-[rgba(255,255,255,0.1)] border hover:bg-[#007eff] transition-[background-color] duration-300" href="https://www.linkedin.com/in/horacioegutierrez/">
-          <LinkedInLogoIcon width={30} height={30} />
-        </a>
-        <a target="_blank" className="p-2 bg-[rgba(255,255,255,0.1)] border-dashed border-[rgba(255,255,255,0.1)] border hover:bg-[#007eff] transition-[background-color] duration-300" href="https://www.instagram.com/horagutierrez">
-          <InstagramLogoIcon width={30} height={30} />
-        </a>
+      <nav id="social" className="flex gap-[17px]">
+        <GrayIcon>
+          <Link href='https://www.instagram.com/horagutierrez/' target='_blank'>
+            <InstagramLogoIcon width={24} height={24} className='group-hover:text-accent text-white  transition-colors duration-[0.3s]' />
+          </Link>
+        </GrayIcon>
+
+        <GrayIcon>
+          <Link href='https://www.github.com/horaciogutierrez/' target='_blank'>
+            <GitHubLogoIcon width={24} height={24} className='group-hover:text-accent text-white  transition-colors duration-[0.3s]' />
+          </Link>
+        </GrayIcon>
+
+        <GrayIcon>
+          <Link href='https://www.linkedin.com/in/horacioegutierrez/' target='_blank'>
+            <LinkedInLogoIcon width={24} height={24} className='group-hover:text-accent text-white  transition-colors duration-[0.3s]' />
+          </Link>
+        </GrayIcon>
+
       </nav>
     </header>
   )

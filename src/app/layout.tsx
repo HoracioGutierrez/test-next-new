@@ -1,4 +1,5 @@
-import Header from './(components)/Header'
+
+import Header from "./(components)/Header"
 import "./globals.css"
 
 type Props = {
@@ -7,10 +8,10 @@ type Props = {
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html className='bg-[#030303]'>
+    <html className='bg-dark'>
       <body>
         <Header/>
-        <main className='px-16'>
+        <main className='p-16'>
           {children}
         </main>
       </body>
