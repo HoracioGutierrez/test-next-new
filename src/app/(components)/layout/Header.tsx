@@ -22,6 +22,7 @@ export default function Header({ }: Props) {
           {mobile === false && (
             <>
               <CurlyLink href='/'>HOME</CurlyLink>
+              <CurlyLink href='/swatches'>SWATCHES</CurlyLink>
               <CurlyLink href='/stars'>STARS</CurlyLink>
               <CurlyLink href='/reviews'>REVIEWS</CurlyLink>
               <CurlyLink href='/about'>ABOUT</CurlyLink>

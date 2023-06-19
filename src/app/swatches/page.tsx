@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 type Props = {}
 
-export default function HomePage({ }: Props) {
+export default function SwatchesPage({ }: Props) {
 
   return (
     <>

@@ -41,7 +41,7 @@ type Props = {
 export default function Text({ children, as, className, type = "regular" }: Props) {
     return (
         <>
-            {React.createElement(as || 'p', { className: `${aeonik.className} text-white font-[500] ${type === "button" ? "text-[14px] leading-[16.8px]" : type === "card-1" ? "text-[16px] leading-[19.2px]" : type === "link" ? "text-[17px] leading-[20.4px]" : "text-[20px] leading-[24px]"} ${className || ''}` }, children)}
+            {React.createElement(as || 'p', { className: `${aeonik.className} text-white font-[500] ${type === "button" ? "text-[14px] leading-[16.8px]" : type === "card-1" ? "text-[16px] leading-[19.2px]" : type === "link" ? "text-[17px] leading-[20.4px]" : "text-[16px] md:text-[20px] leading-[24px]"} ${className || ''}` }, children)}
         </>
     )
 }

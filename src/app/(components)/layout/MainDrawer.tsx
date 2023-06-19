@@ -20,10 +20,11 @@ export default function MainDrawer({ opened = false, close }: Props) {
                     <Drawer.CloseButton />
                 </Drawer.Header>
                 <Drawer.Body className="bg-dark flex flex-col gap-4 pl-[20px]">
-                    <CurlyLink href='/'>HOME</CurlyLink>
-                    <CurlyLink href='/stars'>STARS</CurlyLink>
-                    <CurlyLink href='/reviews'>REVIEWS</CurlyLink>
-                    <CurlyLink href='/about'>ABOUT</CurlyLink>
+                    <CurlyLink href='/' className="!items-center">HOME</CurlyLink>
+                    <CurlyLink href='/swatches' className="!items-center">SWATCHES</CurlyLink>
+                    <CurlyLink href='/stars' className="!items-center">STARS</CurlyLink>
+                    <CurlyLink href='/reviews' className="!items-center">REVIEWS</CurlyLink>
+                    <CurlyLink href='/about' className="!items-center">ABOUT</CurlyLink>
                 </Drawer.Body>
             </Drawer.Content>
         </Drawer.Root>
