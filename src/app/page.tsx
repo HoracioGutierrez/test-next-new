@@ -1,3 +1,4 @@
+import CurlyContainer from "./(components)/CurlyContainer"
 import Divider from "./(components)/Divider"
 import Text from "./(components)/Text"
 import Title from "./(components)/Title"
@@ -31,6 +32,10 @@ export default function HomePage({ }: Props) {
         <Title type="hero" filled={false} className="relative md:-left-2.5 ">ELOPMENT</Title>
       </div>
       <Divider className="my-[30px]" />
+      <CurlyContainer className="max-w-[450px] ml-auto">
+        <Text type="regular">MI NOMBRE ES <span className="text-accent">HORACIO GUTIERREZ</span>, TENGO 34 AÑOS Y SOY DE <span className="text-accent">ARGENTINA.</span></Text>
+        <Text type="regular">ESTA ES UNA PAGINA DE <span className="text-accent">PORTFOLIO PERSONAL</span> LA CUAL USO COMO DEMO ADEMAS, ASI QUE BIENVENIDO A MIRAR, <span className="text-accent">DEJAR UN COMENTARIO Y DINERO</span> (?</Text>
+      </CurlyContainer>
     </div>
   )
 }
