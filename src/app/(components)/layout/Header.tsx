@@ -29,7 +29,7 @@ export default function Header({ }: Props) {
           )}
           
           {mobile === true && (
-            <HamburgerMenuIcon color="white" width={30} height={30} className="cursor-pointer" onClick={open} />
+            <HamburgerMenuIcon color="white" width={30} height={30} className="cursor-pointer relative -left-1" onClick={open} />
           )}
 
         </nav>

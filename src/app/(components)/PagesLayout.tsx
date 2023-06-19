@@ -1,4 +1,9 @@
+import { Metadata } from 'next'
 import Header from "./layout/Header"
+
+export const metadata: Metadata = {
+  title: 'HG - Portfolio'
+}
 
 type Props = {
   children?: React.ReactNode,
