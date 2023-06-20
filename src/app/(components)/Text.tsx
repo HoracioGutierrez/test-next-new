@@ -4,30 +4,42 @@ import localFont from 'next/font/local'
 const aeonik = localFont({
     src: [
         {
-            path: "../(assets)/Aeonik/Aeonik-Regular.otf",
-            weight: "400",
-            style: "normal"
-        },
-        {
-            path: "../(assets)/Aeonik/Aeonik-Bold.otf",
-            weight: "700",
-            style: "normal"
+            path : "../(assets)/Aeonik/Aeonik-Air.otf",
+            weight: "100",
+            style: "air"
         },
         {
             path: "../(assets)/Aeonik/Aeonik-Thin.otf",
-            weight: "300",
-            style: "normal"
+            weight: "200",
+            style: "thin"
         },
         {
-            path: "../(assets)/Aeonik/Aeonik-Black.otf",
-            weight: "900",
-            style: "normal"
+            path: "../(assets)/Aeonik/Aeonik-Light.otf",
+            weight: "300",
+            style: "light"
+        },
+        {
+            path: "../(assets)/Aeonik/Aeonik-Regular.otf",
+            weight: "400",
+            style: "regular"
         },
         {
             path: "../(assets)/Aeonik/Aeonik-Medium.otf",
             weight: "500",
             style: "normal"
-        }
+        },
+        {
+            path: "../(assets)/Aeonik/Aeonik-Bold.otf",
+            weight: "600",
+            style: "normal"
+        },
+        
+        {
+            path: "../(assets)/Aeonik/Aeonik-Black.otf",
+            weight: "700",
+            style: "normal"
+        },
+        
     ]
 })
 

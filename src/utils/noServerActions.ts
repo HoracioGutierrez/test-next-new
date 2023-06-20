@@ -1,10 +1,13 @@
 import { revalidatePath } from "next/cache"
 import prisma from "./prismaClient"
 import { cache } from "react"
+import { db } from "./db"
+import { StarSchema } from "../../drizzle/schema"
+import { eq } from "drizzle-orm"
 
 export const getStars = cache(async () => {
-  const response = await prisma.star.findMany()
-  return response
+  const stars = await db.select().from(StarSchema)
+  return stars
 })
 
 export async function getComments() {
@@ -12,8 +15,8 @@ export async function getComments() {
   return response
 }
 
-export const getStar = cache(async (id: number) => {
-  const response = await prisma.star.findUnique({ where: { id } })
+export const getStar = cache(async (id: string) => {
+  const response = await db.select().from(StarSchema).where(eq(StarSchema.id, Number(id)))
   return response
 })
 
@@ -35,3 +38,4 @@ export async function createComent(data: any) {
     throw new Error("Error creating comment")
   }
 }
+

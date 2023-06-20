@@ -1,11 +1,9 @@
 import CurlyContainer from "@/app/(components)/CurlyContainer"
 import Title from "@/app/(components)/Title"
-import { db } from "@/utils/db"
-import { StarSchema } from "../../../../drizzle/schema"
-import { and, asc, desc, eq, or } from 'drizzle-orm';
 import Text from "@/app/(components)/Text";
 import Divider from "@/app/(components)/Divider";
 import CardFrame from "@/app/(components)/CardFrame";
+import { getStar, getStars } from "@/utils/noServerActions";
 
 type Props = {
     params: {
@@ -13,9 +11,18 @@ type Props = {
     }
 }
 
+export const generateStaticParams = process.env.NODE_ENV !== 'development' ? async () => {
+        const stars = await getStars()
+        return stars.map(star => ({
+            params: {
+                id: star.id.toString()
+            }
+        }))
+    } : undefined
+
 export default async function page({ params: { id } }: Props) {
 
-    const [star] = await db.select().from(StarSchema).where(eq(StarSchema.id, Number(id)))
+    const [star] = await getStar(id)
 
     return (
         <>
@@ -23,15 +30,15 @@ export default async function page({ params: { id } }: Props) {
                 <Title type="section"><span className="text-white !border-white uppercase" style={{ WebkitTextStroke: "1px white" }}>"{star.name}"</span></Title>
                 <CurlyContainer className="max-w-[600px] uppercase">
                     <div className="flex gap-2">
-                        <Text type="regular" className="uppercase">Año de descubrimiento : </Text>
+                        <Text type="regular" className="uppercase font-[300]">Año de descubrimiento : </Text>
                         <Text type="regular" className="!text-accent">{star.discoveryYear}</Text>
                     </div>
                     <div className="flex gap-2">
-                        <Text type="regular" className="uppercase">Descubridor/a : </Text>
+                        <Text type="regular" className="uppercase font-[300]">Descubridor/a : </Text>
                         <Text type="regular" className="!text-accent">{star.discoveredBy}</Text>
                     </div>
                     <div className="flex gap-2">
-                        <Text type="regular" className="uppercase">Distancia : </Text>
+                        <Text type="regular" className="uppercase font-[300]">Distancia : </Text>
                         <Text type="regular" className="!text-accent">{star.distance}</Text>
                     </div>
                 </CurlyContainer>
@@ -42,7 +49,7 @@ export default async function page({ params: { id } }: Props) {
                     <span className="text-[100px]">{star.constellation}</span>
                 </CardFrame>
                 <CardFrame>
-                    <Text type="card-1" className="p-4">{star.description}</Text>
+                    <Text type="card-1" className="p-4 font-[300] text-[20px] leading-6">{star.description}</Text>
                 </CardFrame>
             </section>
         </>
