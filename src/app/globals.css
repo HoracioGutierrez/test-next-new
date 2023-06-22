@@ -88,3 +88,17 @@
 .title-filled {
   -webkit-text-stroke: 2px #007eff;
 }
+
+@keyframes borderPulse  {
+
+  0% {
+    border-color: #fff;
+    box-shadow : 0 0 4px 2px rgb(255,255,255,0.3);
+  }
+
+  100% {
+    border-color: #007eff;
+    box-shadow : 0 0 7px 4px rgb(0,126,255,0.3);
+  }
+  
+}

@@ -17,8 +17,11 @@ export default async function StarPage({ }: Props) {
     <>
       <header className="flex justify-between pt-[100px] items-center">
         <Title type="section">"Stars <span className="text-white !border-white" style={{ WebkitTextStroke: "1px white" }}>are hot"</span></Title>
-        <CurlyContainer className="max-w-[600px] uppercase">
-          En esta pagina queda demostrado como un componente de servidor puede traer desde la base de datos directamente informacion colocalizando en el mismo archivo la parte que lo va a mostrar.
+        <CurlyContainer className="max-w-[700px] uppercase">
+          <p>
+            En esta pagina queda demostrado como un componente de servidor puede traer desde la base de datos directamente informacion colocalizando en el mismo archivo la parte que lo va a mostrar.
+            La misma esta creada como recurso estatico de HTML utilizando la tecnica de <span className="text-accent"> SSG </span> y <span className="text-accent"> ISR </span>.
+          </p>
         </CurlyContainer>
       </header>
       <Divider className="my-[40px]" />

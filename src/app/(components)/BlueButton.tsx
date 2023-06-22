@@ -1,14 +1,18 @@
+"use client"
+
 import Text from "./Text"
 
 type Props = {
     text?: string,
     className?: string,
-    children?: React.ReactNode
+    children?: React.ReactNode,
+    onClick?: () => void,
+    type?: "button" | "submit" | "reset"
 }
 
-export default function BlueButton({ text, className, children }: Props) {
+export default function BlueButton({ text, className, children , onClick = () => {} , type = "submit" }: Props) {
     return (
-        <button className={`${className} p-3.5 uppercase border border-accent text-accent flex items-center gap-2.5 bg-accent-7`}>
+        <button type={type} className={`${className} p-3.5 uppercase border border-accent text-accent flex items-center gap-2.5 bg-accent-7`} onClick={onClick}>
             <Text type="button">
                 {children ? children : text}
             </Text>

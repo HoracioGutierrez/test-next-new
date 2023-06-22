@@ -4,6 +4,8 @@ import Text from "@/app/(components)/Text";
 import Divider from "@/app/(components)/Divider";
 import CardFrame from "@/app/(components)/CardFrame";
 import { getStar, getStars } from "@/utils/noServerActions";
+import BlueButton from "@/app/(components)/BlueButton";
+import Link from "next/link";
 
 type Props = {
     params: {
@@ -52,6 +54,9 @@ export default async function page({ params: { id } }: Props) {
                     <Text type="card-1" className="p-4 font-[300] text-[20px] leading-6">{star.description}</Text>
                 </CardFrame>
             </section>
+            <BlueButton className="w-fit mt-[40px] mx-auto">
+                <Link href="/stars"> volver </Link>
+            </BlueButton>
         </>
     )
 }

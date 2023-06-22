@@ -8,6 +8,6 @@ export const StarSchema = mysqlTable('Star', {
     constellation: varchar('constellation', { length: 255 }),
     distance: int('distance'),
     discoveredBy: varchar('discoveredBy', { length: 255 }),
-    discoveryYear: int('discoveredBy'),
+    discoveryYear: int('discoveryYear'),
     description: text('description'),
 });

@@ -3,7 +3,6 @@ import CurlyContainer from "./(components)/CurlyContainer"
 import Divider from "./(components)/Divider"
 import Text from "./(components)/Text"
 import Title from "./(components)/Title"
-import { motion } from "framer-motion"
 
 type Props = {}
 
