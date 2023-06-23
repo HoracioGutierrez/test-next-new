@@ -20,7 +20,7 @@ export const createStar = async (star: any) => {
     revalidatePath('/stars')
     return new_star
   } catch (e) {
-    throw e
+    return e
   }
 }
 
