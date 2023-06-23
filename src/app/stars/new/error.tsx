@@ -24,6 +24,7 @@ export default function NewStarError ({ error, reset }: Props) {
 
   useEffect(() => {
     try {
+      console.log(error.message)
       const errors = JSON.parse(error.message)
       const parsed = errors.reduce((acc: any, { path, message }: { path: string[], message: string }) => {
         acc[path[0]] = message
@@ -31,8 +32,8 @@ export default function NewStarError ({ error, reset }: Props) {
       }, {})
       setErrors({ ...errors, ...parsed })
     } catch (err) {
-      console.error(error)
-      console.log(err)
+      console.log({ error })
+      console.log({ err })
     }
   }, [error])
 
